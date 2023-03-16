@@ -1,0 +1,248 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+body{
+    background: #8CC461;
+    width: 100vw;
+    height: 100vh;
+}
+
+header{
+    height: 30vh;
+    width: 100%;
+    padding: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#score-section{
+    width: 70%;
+    padding: 20px;
+    border: 3px solid #fff;  
+    border-radius: 10px;  
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#intro{
+    width: 25%;
+    color: #fff;
+    font-weight:bold
+}
+
+#score-area{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.score{
+    background-color: #fff;
+    width: 115px;
+    height: 115px;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: lighter;
+}
+
+section{
+    position: relative;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-area{
+    display: none;
+}
+#win-area{
+    display: none;
+}
+
+#upper-part{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#lower-part{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-restart{
+    color: #fff;
+    background-color: #004429;
+    position: absolute;
+    left: 40%;
+    top:50%;
+    z-index: 100;
+    display: none;
+}
+/* #restart{
+    display: none;
+} */
+
+#re-button{
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#celebration{
+    animation: scaleUp 2s ease-in infinite alternate;
+    position: absolute;
+    left: 40%;
+    top:30%;
+    z-index: 10;
+    display:none;
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(0.5);
+        -webkit-transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+}
+
+
+
+.hand{
+    width: 125px;
+    height: 125px;
+    margin: 25px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+#upper-part .hand:nth-child(1){
+    border: 10px solid #0074B6;
+}
+#upper-part .hand:nth-child(2){
+    border: 10px solid #BD00FF;
+}
+#lower-part .hand:nth-child(1){
+    border: 10px solid #FFA943;
+}
+
+#line1{
+    position: absolute;
+    left:45%;
+    top:20%
+}
+#line2{
+    position: absolute;
+    left:50%;
+    top:35%
+}
+#line3{
+    position: absolute;
+    left:45%;
+    top:35%
+}
+
+.win-hand{
+    width: 125px;
+    height: 125px;
+    margin: 150px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+#rules{
+    height: 10vh;
+    padding:0 5% 10% 0;
+    display: flex;
+    justify-content: flex-end;
+}
+#rules button, #start{
+    height: 40px;
+    width: 100px;
+    border: 2px solid #fff; 
+    border-radius: 5px;
+    color: #fff;
+    background-color: transparent;
+    cursor: pointer;
+    text-align: center;
+}
+
+ul{
+    list-style: none;
+}
+
+li{
+    font-size: 12px;
+    margin: 10px 0;
+}
+#ruleboard{
+    position: absolute;
+    background-color: #004429;
+    right: 30px;
+    bottom: 60px;
+    width: 275px;
+    height: 325px;
+    padding: 30px;
+    border: 3px solid #fff;  
+    border-radius: 10px;  
+    color: #fff;
+    display: none;
+    z-index: 10;
+}
+
+#close{
+    position: absolute;
+    right: 20px;
+    color: #fff;
+    bottom: 370px;
+    width: 25px;
+    height: 25px;
+    background-color: #ff0000;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    text-align: center;
+    z-index: 100;
+    cursor: pointer;
+    display: none;
+}
+
+#winner button{
+    outline: none;
+    height: 35px;
+    width: 80px;
+    border: 2px solid #ccc; 
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#winner{
+    text-align: center;
+}
