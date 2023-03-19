@@ -24,6 +24,12 @@ let computerScore = 0;
 let playerScore = 0;
 let playerChoice, computerChoice;
 
+if(localStorage.getItem("scores")!== null){
+    let storedScore = JSON.parse(localStorage.getItem("scores"));
+    yScore.innerText = storedScore.yScore;
+    cScore.innerText = storedScore.cScore;
+}
+
 // const restartG=()=>{
 //     setTimeout(()=>{
 //         gameRestart.style.display= "none";
@@ -47,7 +53,7 @@ const celebrate = ()=>{
 const lost= ()=>{
     reset();
     // restartG();
-    resultMessage.innerText = "You Lost!  Game Restarted"
+    resultMessage.innerText = "You Lost Against Computer"
 }
 
 const winOrTie =()=>{
@@ -60,11 +66,13 @@ const winOrTie =()=>{
         console.log("tie")
         reset();
         // restartG();
-        resultMessage.innerText = "Tie!  Game Restarted"
+        resultMessage.innerText = "It's a Tie!"
     } 
 }
 
 const startPlay=()=>{
+    yScore.innerText = 0;
+    cScore.innerText = 0;
     gameArea.style.display= "block";
     setTimeout(()=>{
         playerScore>=computerScore ? winOrTie() : lost();
@@ -72,7 +80,7 @@ const startPlay=()=>{
     setInterval(()=>{
         time.innerText = `${parseInt(time.innerText)>0 ? parseInt(time.innerText)-1 : 0}`;
     },1000)
-    start.style.display = "none"
+    start.style.display = "none";
 }
 
 const renderWinner=(cChoice,pChoice)=>{
@@ -108,6 +116,7 @@ const renderWinner=(cChoice,pChoice)=>{
     console.log(pImage,cImage);
     winLeft.appendChild(pImage);
     winRight.appendChild(cImage);
+
 }
 
 const gameFunction = ()=>{
@@ -159,6 +168,10 @@ const gameFunction = ()=>{
         playerScore++;
         yScore.innerText = playerScore;
     }
+
+    let scores = {cScore:computerScore, yScore:playerScore}
+
+    localStorage.setItem("scores", JSON.stringify(scores))
     renderWinner(computerChoice,playerChoice)
     
     console.log(`computer: ${computerScore} and you: ${playerScore}`)
@@ -203,8 +216,10 @@ playAgain.addEventListener("click", ()=>{
 })
 restart.addEventListener("click", ()=>{
     location.reload();
+    localStorage.clear();
 })
 start.addEventListener("click", ()=>{
+    localStorage.clear();
     startPlay();
 })
 
